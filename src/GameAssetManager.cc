@@ -1,4 +1,5 @@
 #include "GameAssetManager.h"
+#include <glm/glm.hpp>
 
 /**
  * Creates a GameAssetManager to load the correct shaders based on the
@@ -69,6 +70,9 @@ void GameAssetManager::Draw() {
   for(auto ga: draw_list) {
     ga->Draw(program_token);
   }
+  
+  //glm::mat4 view;
+
 }
 
 /**
