@@ -1,18 +1,18 @@
 #include "CubeAsset.h"
 
-CubeAsset::CubeAsset() {
+CubeAsset::CubeAsset(GLfloat x, GLfloat y, GLfloat z) {
   // model coordinates, origin at centre.
   GLfloat vertex_buffer [] {
 
-      -0.5, -0.5, 0.0
-    , -0.5,  0.5, 0.0
-    ,  0.5, -0.5, 0.0
-    ,  0.5,  0.5, 0.0
+      -0.5+x, -0.5+y, 0.0+z
+    , -0.5+x,  0.5+y, 0.0+z
+    ,  0.5+x, -0.5+y, 0.0+z
+    ,  0.5+x,  0.5+y, 0.0+z
 
-    , -0.5, -0.5, 1.0
-    , -0.5,  0.5, 1.0
-    ,  0.5, -0.5, 1.0
-    ,  0.5,  0.5, 1.0
+    , -0.5+x, -0.5+y, 1.0+z
+    , -0.5+x,  0.5+y, 1.0+z
+    ,  0.5+x, -0.5+y, 1.0+z
+    ,  0.5+x,  0.5+y, 1.0+z
 
   };
 
