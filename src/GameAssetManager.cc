@@ -59,7 +59,9 @@ GameAssetManager::GameAssetManager(GameAssetManager const&& the_manager) {
 void GameAssetManager::operator=(GameAssetManager const& the_manager) {
   // TODO: implement this
 }
-
+void GameAssetManager::translateCamera(GLfloat x, GLfloat y, GLfloat z){
+c.translateCamera(x,y,z);
+}
 /**
  * Adds a GameAsset to the scene graph.
  */
@@ -67,26 +69,18 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
   draw_list.push_back(the_asset);
 }
 
-void GameAssetManager::translateModel(GLfloat x, GLfloat y, GLfloat z){
-glm::mat4 translate;
-
-translate[3][0]=x;
-translate[3][1]=y;
-translate[3][2]=z;
-
-model*=translate;
-}
 /**
  * Draws each GameAsset in the scene graph.
  */
 void GameAssetManager::Draw() {
-
+glUseProgram(program_token);
 
   for(auto ga: draw_list) {
     ga->Draw(program_token);
+  GLint ModelLoc = glGetUniformLocation(program_token,"model");
+  
+  glUniformMatrix4fv(ModelLoc, 1, GL_FALSE, &model[0][0]);
   }
-
-glUseProgram(program_token);
 
 auto view=c.getView();
 
@@ -94,9 +88,7 @@ auto view=c.getView();
 
   glUniformMatrix4fv(ViewLoc, 1, GL_FALSE, &view[0][0]);
 
-  GLint ModelLoc = glGetUniformLocation(program_token,"model");
-  
-  glUniformMatrix4fv(ModelLoc, 1, GL_FALSE, &model[0][0]);
+
 }
 
 /**

@@ -149,7 +149,7 @@ int main(int argc, char ** argv) {
 
   // Call the function "tick" every delay milliseconds
   SDL_AddTimer(delay, tick, NULL);
-
+  auto gameworld = game_world->asset_manager;
   // Add the main event loop
   SDL_Event event;
   while (SDL_WaitEvent(&event)) {
@@ -159,8 +159,15 @@ int main(int argc, char ** argv) {
       break;
     case SDL_USEREVENT:
       Draw(window, game_world);
-
       break;
+    case SDL_KEYDOWN:
+	switch(event.key.keysym.sym){
+		case SDLK_d:
+			gameworld->translateCamera(0.2f,0.0f,0.0f);
+break;
+default:
+ break;
+}
     default:
       break;
     }

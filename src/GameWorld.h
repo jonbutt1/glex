@@ -27,7 +27,8 @@ class GameWorld {
    * Calling Draw() will draw the entire world.
    */
   void Draw();
+std::shared_ptr<GameAssetManager> asset_manager;
  private:
-  std::shared_ptr<GameAssetManager> asset_manager;
+  
 };
 #endif // GAMEWORLD_H
