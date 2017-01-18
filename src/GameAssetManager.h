@@ -9,9 +9,10 @@
 #include <iostream>
 
 #include <GL/gl.h>
-
+#include <SDL2/SDL.h>
 #include "common.h"
 #include "GameAsset.h"
+#include "Camera.h"
 
 /**
  * GameAssetManager is a container for GameAssets.  It also provides utility
@@ -27,8 +28,12 @@ class GameAssetManager {
   void operator=(GameAssetManager const&); // assignment
   void AddAsset(std::shared_ptr<GameAsset>);
   void Draw();
+  void translateModel(GLfloat x, GLfloat y, GLfloat z);
+  glm::mat4 model = glm::mat4(1.0f);
 
  private:
+
+Camera c;
   GLuint CreateGLProgram(std::string &, std::string &);
   GLuint CreateGLESShader(GLenum, std::string &);
   // As this is private and we're writing to the GPU, we will use raw pointers.

@@ -1,5 +1,9 @@
 #include "GameAssetManager.h"
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include "Camera.cc"
+
 
 /**
  * Creates a GameAssetManager to load the correct shaders based on the
@@ -63,16 +67,36 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
   draw_list.push_back(the_asset);
 }
 
+void GameAssetManager::translateModel(GLfloat x, GLfloat y, GLfloat z){
+glm::mat4 translate;
+
+translate[3][0]=x;
+translate[3][1]=y;
+translate[3][2]=z;
+
+model*=translate;
+}
 /**
  * Draws each GameAsset in the scene graph.
  */
 void GameAssetManager::Draw() {
+
+
   for(auto ga: draw_list) {
     ga->Draw(program_token);
   }
-  
-  //glm::mat4 view;
 
+glUseProgram(program_token);
+
+auto view=c.getView();
+
+  GLint ViewLoc = glGetUniformLocation(program_token,"view");
+
+  glUniformMatrix4fv(ViewLoc, 1, GL_FALSE, &view[0][0]);
+
+  GLint ModelLoc = glGetUniformLocation(program_token,"model");
+  
+  glUniformMatrix4fv(ModelLoc, 1, GL_FALSE, &model[0][0]);
 }
 
 /**
