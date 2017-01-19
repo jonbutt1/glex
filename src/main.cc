@@ -162,9 +162,30 @@ int main(int argc, char ** argv) {
       break;
     case SDL_KEYDOWN:
 	switch(event.key.keysym.sym){
+		case SDLK_a:
+		gameworld->translateCamera(0.03f,0.0f,0.0f);
+		break;
+		
 		case SDLK_d:
-			gameworld->translateCamera(0.2f,0.0f,0.0f);
-break;
+		gameworld->translateCamera(-0.03f,0.0f,0.0f);
+		break;
+
+		case SDLK_s:
+		gameworld->translateCamera(0.0f,0.0f,-0.03f);
+		break;
+
+		case SDLK_w:
+		gameworld->translateCamera(0.0f,0.0f,0.03f);
+		break;
+
+		case SDLK_z:
+		gameworld->translateCamera(0.0f,0.03f,0.0f);
+		break;
+
+		case SDLK_x:
+		gameworld->translateCamera(0.0f,-0.03f,0.0f);
+		break;
+
 default:
  break;
 }

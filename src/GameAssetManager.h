@@ -13,6 +13,7 @@
 #include "common.h"
 #include "GameAsset.h"
 #include "Camera.h"
+#include "GameAsset.h"
 
 /**
  * GameAssetManager is a container for GameAssets.  It also provides utility
@@ -28,8 +29,8 @@ class GameAssetManager {
   void operator=(GameAssetManager const&); // assignment
   void AddAsset(std::shared_ptr<GameAsset>);
   void Draw();
+  void scaleModel(GLfloat x, GLfloat y, GLfloat z);
   void translateCamera(GLfloat x, GLfloat y, GLfloat z);
-  glm::mat4 model = glm::mat4(1.0f);
 
  private:
 

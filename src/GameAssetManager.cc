@@ -3,6 +3,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "Camera.cc"
+#include "GameAsset.cc"
+
 
 
 /**
@@ -59,6 +61,7 @@ GameAssetManager::GameAssetManager(GameAssetManager const&& the_manager) {
 void GameAssetManager::operator=(GameAssetManager const& the_manager) {
   // TODO: implement this
 }
+
 void GameAssetManager::translateCamera(GLfloat x, GLfloat y, GLfloat z){
 c.translateCamera(x,y,z);
 }
@@ -77,8 +80,8 @@ glUseProgram(program_token);
 
   for(auto ga: draw_list) {
     ga->Draw(program_token);
+  glm::mat4 model=ga->getModelMat();
   GLint ModelLoc = glGetUniformLocation(program_token,"model");
-  
   glUniformMatrix4fv(ModelLoc, 1, GL_FALSE, &model[0][0]);
   }
 
