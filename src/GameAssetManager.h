@@ -7,13 +7,13 @@
 #include <utility>
 #include <fstream>
 #include <iostream>
-
 #include <GL/gl.h>
+#include <glm/glm.hpp>
 #include <SDL2/SDL.h>
+
 #include "common.h"
 #include "GameAsset.h"
 #include "Camera.h"
-#include "GameAsset.h"
 
 /**
  * GameAssetManager is a container for GameAssets.  It also provides utility
@@ -34,7 +34,7 @@ class GameAssetManager {
 
  private:
 
-Camera c;
+  Camera camera;
   GLuint CreateGLProgram(std::string &, std::string &);
   GLuint CreateGLESShader(GLenum, std::string &);
   // As this is private and we're writing to the GPU, we will use raw pointers.

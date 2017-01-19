@@ -5,8 +5,6 @@
 #include "Camera.cc"
 #include "GameAsset.cc"
 
-
-
 /**
  * Creates a GameAssetManager to load the correct shaders based on the
  * ApplicationMode.
@@ -61,9 +59,11 @@ GameAssetManager::GameAssetManager(GameAssetManager const&& the_manager) {
 void GameAssetManager::operator=(GameAssetManager const& the_manager) {
   // TODO: implement this
 }
-
+/**
+ * Moves the Camera.
+ */
 void GameAssetManager::translateCamera(GLfloat x, GLfloat y, GLfloat z){
-c.translateCamera(x,y,z);
+camera.translateCamera(x,y,z);
 }
 /**
  * Adds a GameAsset to the scene graph.
@@ -76,20 +76,24 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
  * Draws each GameAsset in the scene graph.
  */
 void GameAssetManager::Draw() {
-glUseProgram(program_token);
+
+  glUseProgram(program_token);
 
   for(auto ga: draw_list) {
-    ga->Draw(program_token);
-  glm::mat4 model=ga->getModelMat();
-  GLint ModelLoc = glGetUniformLocation(program_token,"model");
-  glUniformMatrix4fv(ModelLoc, 1, GL_FALSE, &model[0][0]);
+   ga->Draw(program_token);
+
+   glm::mat4 model=ga->getModelMat();
+   GLint ModelLocation = glGetUniformLocation(program_token,"model");
+   glUniformMatrix4fv(ModelLocation, 1, GL_FALSE, glm::value_ptr(model));
+  
+   glm::vec3 colour=ga->getModelColour();
+   GLint ColourLocation = glGetUniformLocation(program_token,"colour");
+   glUniform3f(ColourLocation, colour[0], colour[1], colour[2]);
   }
 
-auto view=c.getView();
-
-  GLint ViewLoc = glGetUniformLocation(program_token,"view");
-
-  glUniformMatrix4fv(ViewLoc, 1, GL_FALSE, &view[0][0]);
+  auto view=camera.getView();
+  GLint ViewLocation = glGetUniformLocation(program_token,"view");
+  glUniformMatrix4fv(ViewLocation, 1, GL_FALSE, glm::value_ptr(view));
 
 
 }

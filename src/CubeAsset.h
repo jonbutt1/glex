@@ -2,7 +2,6 @@
 #define CUBEASSET_H
 
 #include <vector>
-
 #include <GL/gl.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
