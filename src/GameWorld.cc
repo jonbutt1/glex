@@ -5,9 +5,11 @@ GameWorld::GameWorld (ApplicationMode mode) : asset_manager(std::make_shared<Gam
  auto cube1=std::make_shared<CubeAsset>(0.0f,0.0f,0.0f);
  auto cube2=std::make_shared<CubeAsset>(-5.0f,0.0f,0.0f);
  auto cube3=std::make_shared<CubeAsset>(3.0f,0.0f,0.0f);
+ auto diamond=std::make_shared<Diamond>(5.0f,0.0f,0.0f);
  asset_manager->AddAsset(cube1);
  asset_manager->AddAsset(cube2);
  asset_manager->AddAsset(cube3);
+ asset_manager->AddAsset(diamond);
  cube2->scaleModel(1.0f,3.0f,3.0f);
  cube3->scaleModel(2.0f,2.0f,0.0f);
  cube3->setModelColour(1.0f,1.0f,0.0f);
