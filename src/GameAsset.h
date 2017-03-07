@@ -10,6 +10,7 @@ class GameAsset {
   virtual void Draw(GLuint) = 0;
   void scaleModel(GLfloat x, GLfloat y, GLfloat z);
   void setModelColour(GLfloat r, GLfloat g, GLfloat b);
+  void translateModel(GLfloat x, GLfloat y, GLfloat z);
   glm::mat4 getModelMat();
   glm::vec3 getModelColour();
 

@@ -178,7 +178,7 @@ int main(int argc, char ** argv) {
  	  * Move camera backwards.
  	  */
 	  case SDLK_s:
-	  gameworld->translateCamera(0.0f,0.0f,-0.04f);
+	  gameworld->translateCamera(0.0f,0.0f,-0.5f);
 	  break;
 	  /**
  	  * Move camera forwards.
