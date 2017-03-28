@@ -30,13 +30,7 @@ void GameAsset::setModelColour(GLfloat r, GLfloat g, GLfloat b){
 
 void GameAsset::translateModel(GLfloat x, GLfloat y, GLfloat z){
 
-	glm::mat4 translate;
-
-	translate[3][0]+=x;
-	translate[3][1]+=y;
-	translate[3][2]+=z;
-
-	model*=translate;
+	model = glm::translate(this->model, glm::vec3(x, y, z));
 }
 
 glm::mat4 GameAsset::getModelMat(){

@@ -1,7 +1,15 @@
 EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h
 
 bin_PROGRAMS = shaderexample
-shaderexample_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc
+shaderexample_SOURCES = main.cc
+shaderexample_LDADD = libtest.la
+
+
+lib_LTLIBRARIES=libtest.la
+libtest_la_SOURCES=GameWorld.cc GameAssetManager.cc CubeAsset.cc
+libtest_la_LDFLAGS = -version-info 0:0:0
+
+lib_LTLIBRARIES+=libpytest.la
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -g
 AM_CPPFLAGS += -std=c++11

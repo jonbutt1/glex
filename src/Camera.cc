@@ -24,9 +24,4 @@ void Camera::translateCamera(GLfloat x, GLfloat y, GLfloat z){
 
 viewMatrix = glm::translate(this->viewMatrix, glm::vec3(x, y, z));
 
-/*translate[3][0]+=x;
-translate[3][1]+=y;
-translate[3][2]+=z;*/
-
-//viewMatrix*=translate;
 }

@@ -166,13 +166,13 @@ int main(int argc, char ** argv) {
  	  * Move camera to the left.
  	  */
 	  case SDLK_a:
-	  gameworld->translateCamera(0.04f,0.0f,0.0f);
+	  gameworld->translateCamera(0.5f,0.0f,0.0f);
 	  break;
 	  /**
  	  * Move camera to the right.
  	  */	
 	  case SDLK_d:
-	  gameworld->translateCamera(-0.04f,0.0f,0.0f);
+	  gameworld->translateCamera(-0.5f,0.0f,0.0f);
 	  break;
 	  /**
  	  * Move camera backwards.
@@ -184,19 +184,19 @@ int main(int argc, char ** argv) {
  	  * Move camera forwards.
  	  */
 	  case SDLK_w:
-	  gameworld->translateCamera(0.0f,0.0f,0.04f);
+	  gameworld->translateCamera(0.0f,0.0f,0.5f);
 	  break;
 	  /**
  	  * Move camera downwards.
  	  */
 	  case SDLK_z:
-	  gameworld->translateCamera(0.0f,0.04f,0.0f);
+	  gameworld->translateCamera(0.0f,0.5f,0.0f);
 	  break;
 	  /**
  	  * Move camera upwards.
  	  */
 	  case SDLK_x:
-	  gameworld->translateCamera(0.0f,-0.04f,0.0f);
+	  gameworld->translateCamera(0.0f,-0.5f,0.0f);
 	  break;
   default:
   break;
