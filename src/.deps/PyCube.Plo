@@ -1392,7 +1392,7 @@ PyCube.lo: PyCube.cc /usr/include/stdc-predef.h \
  /usr/include/glm/detail/intrinsic_matrix.hpp \
  /usr/include/glm/detail/intrinsic_matrix.inl \
  /usr/include/glm/gtx/simd_mat4.inl GameAsset.h \
- /usr/include/c++/6.3.1/iostream BoundingBox.h Math.h
+ /usr/include/c++/6.3.1/iostream
 
 /usr/include/stdc-predef.h:
 
@@ -4587,7 +4587,3 @@ CubeAsset.h:
 GameAsset.h:
 
 /usr/include/c++/6.3.1/iostream:
-
-BoundingBox.h:
-
-Math.h:

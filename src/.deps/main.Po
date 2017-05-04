@@ -933,19 +933,21 @@ main.o: main.cc /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/glm/detail/func_matrix.inl \
  /usr/include/glm/vector_relational.hpp /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.hpp \
- /usr/include/glm/detail/func_integer.inl GameAsset.h BoundingBox.h \
- Math.h /usr/include/glm/ext.hpp /usr/include/glm/gtc/bitfield.hpp \
- /usr/include/glm/gtc/bitfield.inl /usr/include/glm/gtc/constants.hpp \
- /usr/include/glm/gtc/constants.inl /usr/include/glm/gtc/epsilon.hpp \
- /usr/include/glm/gtc/epsilon.inl /usr/include/glm/gtc/quaternion.hpp \
- /usr/include/glm/gtc/quaternion.inl /usr/include/glm/gtc/integer.hpp \
- /usr/include/glm/gtc/integer.inl /usr/include/glm/gtc/matrix_access.hpp \
+ /usr/include/glm/detail/func_integer.inl GameAsset.h Camera.h \
+ /usr/include/glm/gtc/matrix_transform.hpp \
+ /usr/include/glm/gtc/constants.hpp /usr/include/glm/gtc/constants.inl \
+ /usr/include/glm/gtc/matrix_transform.inl \
+ /usr/include/glm/gtc/type_ptr.hpp /usr/include/glm/gtc/quaternion.hpp \
+ /usr/include/glm/gtc/quaternion.inl /usr/include/glm/gtc/type_ptr.inl \
+ BoundingBox.h Math.h /usr/include/glm/ext.hpp \
+ /usr/include/glm/gtc/bitfield.hpp /usr/include/glm/gtc/bitfield.inl \
+ /usr/include/glm/gtc/epsilon.hpp /usr/include/glm/gtc/epsilon.inl \
+ /usr/include/glm/gtc/integer.hpp /usr/include/glm/gtc/integer.inl \
+ /usr/include/glm/gtc/matrix_access.hpp \
  /usr/include/glm/gtc/matrix_access.inl \
  /usr/include/glm/gtc/matrix_integer.hpp \
  /usr/include/glm/gtc/matrix_inverse.hpp \
- /usr/include/glm/gtc/matrix_inverse.inl \
- /usr/include/glm/gtc/matrix_transform.hpp \
- /usr/include/glm/gtc/matrix_transform.inl /usr/include/glm/gtc/noise.hpp \
+ /usr/include/glm/gtc/matrix_inverse.inl /usr/include/glm/gtc/noise.hpp \
  /usr/include/glm/detail/_noise.hpp /usr/include/glm/gtc/noise.inl \
  /usr/include/glm/gtc/packing.hpp /usr/include/glm/gtc/type_precision.hpp \
  /usr/include/glm/gtc/vec1.hpp /usr/include/glm/gtc/vec1.inl \
@@ -953,7 +955,6 @@ main.o: main.cc /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/glm/gtc/random.hpp /usr/include/glm/gtc/random.inl \
  /usr/include/glm/gtc/reciprocal.hpp /usr/include/glm/gtc/reciprocal.inl \
  /usr/include/glm/gtc/round.hpp /usr/include/glm/gtc/round.inl \
- /usr/include/glm/gtc/type_ptr.hpp /usr/include/glm/gtc/type_ptr.inl \
  /usr/include/glm/gtc/ulp.hpp /usr/include/glm/gtc/ulp.inl \
  /usr/include/glm/gtx/associated_min_max.hpp \
  /usr/include/glm/gtx/associated_min_max.inl /usr/include/glm/gtx/bit.hpp \
@@ -1040,7 +1041,7 @@ main.o: main.cc /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/glm/gtx/simd_vec4.inl /usr/include/glm/gtx/simd_mat4.hpp \
  /usr/include/glm/detail/intrinsic_matrix.hpp \
  /usr/include/glm/detail/intrinsic_matrix.inl \
- /usr/include/glm/gtx/simd_mat4.inl Camera.h CubeAsset.h
+ /usr/include/glm/gtx/simd_mat4.inl CubeAsset.h
 
 /usr/include/stdc-predef.h:
 
@@ -3238,6 +3239,24 @@ GameAssetManager.h:
 
 GameAsset.h:
 
+Camera.h:
+
+/usr/include/glm/gtc/matrix_transform.hpp:
+
+/usr/include/glm/gtc/constants.hpp:
+
+/usr/include/glm/gtc/constants.inl:
+
+/usr/include/glm/gtc/matrix_transform.inl:
+
+/usr/include/glm/gtc/type_ptr.hpp:
+
+/usr/include/glm/gtc/quaternion.hpp:
+
+/usr/include/glm/gtc/quaternion.inl:
+
+/usr/include/glm/gtc/type_ptr.inl:
+
 BoundingBox.h:
 
 Math.h:
@@ -3248,17 +3267,9 @@ Math.h:
 
 /usr/include/glm/gtc/bitfield.inl:
 
-/usr/include/glm/gtc/constants.hpp:
-
-/usr/include/glm/gtc/constants.inl:
-
 /usr/include/glm/gtc/epsilon.hpp:
 
 /usr/include/glm/gtc/epsilon.inl:
-
-/usr/include/glm/gtc/quaternion.hpp:
-
-/usr/include/glm/gtc/quaternion.inl:
 
 /usr/include/glm/gtc/integer.hpp:
 
@@ -3273,10 +3284,6 @@ Math.h:
 /usr/include/glm/gtc/matrix_inverse.hpp:
 
 /usr/include/glm/gtc/matrix_inverse.inl:
-
-/usr/include/glm/gtc/matrix_transform.hpp:
-
-/usr/include/glm/gtc/matrix_transform.inl:
 
 /usr/include/glm/gtc/noise.hpp:
 
@@ -3307,10 +3314,6 @@ Math.h:
 /usr/include/glm/gtc/round.hpp:
 
 /usr/include/glm/gtc/round.inl:
-
-/usr/include/glm/gtc/type_ptr.hpp:
-
-/usr/include/glm/gtc/type_ptr.inl:
 
 /usr/include/glm/gtc/ulp.hpp:
 
@@ -3529,7 +3532,5 @@ Math.h:
 /usr/include/glm/detail/intrinsic_matrix.inl:
 
 /usr/include/glm/gtx/simd_mat4.inl:
-
-Camera.h:
 
 CubeAsset.h:

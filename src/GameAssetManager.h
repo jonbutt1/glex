@@ -32,7 +32,8 @@ class GameAssetManager {
   void Draw();
   void scaleModel(GLfloat x, GLfloat y, GLfloat z);
   void translateCamera(GLfloat x, GLfloat y, GLfloat z);
-  bool checkCollision(BoundingBox *a, BoundingBox *b);
+  bool collidesWithCamera(GameAsset *a, glm::mat4 camera);
+  std::shared_ptr<GameAsset> GetAsset(int i);
 
  private:
 
@@ -45,6 +46,7 @@ class GameAssetManager {
   // The internal scene graph is a simple list.
   std::vector<std::shared_ptr<GameAsset>> draw_list;
   GLuint program_token;
+  GLuint list_length=0;
 };
 
 #endif // GAMEASSETMANAGER_H

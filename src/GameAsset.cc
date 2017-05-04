@@ -3,9 +3,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-GameAsset::GameAsset(){
-	this->bbox=make_shared<BoundingBox>(BoundingBox(Vector3(0.0f,0.0f,0.0f),1.0f,1.0f,1.0f));
-}
 /*
 * This changes the game asset size by multiplying the model matrix 
 * by a new matrix with new scale values input into the parameter.
@@ -38,10 +35,6 @@ void GameAsset::translateModel(GLfloat x, GLfloat y, GLfloat z){
 glm::mat4 GameAsset::getModelMat(){
  return model;
 }
-shared_ptr<BoundingBox> bbox;
 glm::vec3 GameAsset::getModelColour(){
  return model_colour;
-}
-BoundingBox GameAsset::getbbox(){
-return bbox;
 }

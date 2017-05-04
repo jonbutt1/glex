@@ -5,7 +5,6 @@
 #include "Camera.cc"
 #include "GameAsset.cc"
 
-auto player=std::make_shared<BoundingBox>(Vector3(0.0f,0.0f,0.0f),0.5f,0.5f,0.5f);
 
 /**
  * Creates a GameAssetManager to load the correct shaders based on the
@@ -66,14 +65,52 @@ void GameAssetManager::operator=(GameAssetManager const& the_manager) {
  */
 void GameAssetManager::translateCamera(GLfloat x, GLfloat y, GLfloat z){
 camera.translateCamera(x,y,z);
-Vector3 vec(x,y,z);
-player->SetCentre(vec);
 }
+
 /**
  * Adds a GameAsset to the scene graph.
  */
 void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
   draw_list.push_back(the_asset);
+  list_length++;
+}
+
+std::shared_ptr<GameAsset> GameAssetManager::GetAsset(int i){
+	return draw_list[i];
+}
+bool GameAssetManager::collidesWithCamera(GameAsset *a, glm::mat4 camera){
+
+	//glm::vec3 a_pos = a->getPosition();
+	//glm::vec3 b_pos = b->getPosition();
+
+	glm::mat4 model1=a->getModelMat();
+	//glm::mat4 camera=c->getView();
+
+	GLfloat a_x = model1[3][0];
+	GLfloat a_y = model1[3][1];
+	GLfloat a_z = model1[3][2];
+	GLfloat a_h = 0.01f;//model1[0][0];
+	GLfloat a_w = 0.01f;//model1[1][1];
+	GLfloat a_d = 0.01f;//model1[2][2];
+
+	GLfloat c_x = camera[3][0];
+	GLfloat c_y = camera[3][1];
+	GLfloat c_z = camera[3][2];
+	GLfloat c_h = 0.01f;//camera[0][0];
+	GLfloat c_w = 0.01f;//camera[1][1];
+	GLfloat c_d = 0.01f;//camera[2][2];
+
+	if(((a_x - c_x)*2 <= (a_w+c_w)) &&
+	  ((a_y - c_y) *2<= (a_h+c_h)) &&
+	   ((a_z-c_z)*2<=(a_d+c_d))
+		)
+	{
+		return true;
+
+	}
+	else{
+	return false;
+	}
 }
 
 /**
@@ -97,47 +134,51 @@ void GameAssetManager::Draw() {
  	  * Move camera to the left.
  	  */
 	  case SDLK_a:
-	translateCamera(-0.5f,0.0f,0.0f);
-  	for(auto c : draw_list){
-	if(player->CollidesWith(c->getbbox())){
-		translateCamera(0.5f,0.0f,0.0f);
-}
-}
-	    
+translateCamera(0.3f,0.0f,0.0f);
+  for(int i=0;i<list_length;i++){
 
+	    if(collidesWithCamera(GetAsset(i).get(),view)){
+	      translateCamera(-0.01f,0.0f,0.0f);
+	std::cout<<"collision a"<<std::endl;
+	    }
+}
 	  break;
 	  /**
  	  * Move camera to the right.
  	  */	
 	  case SDLK_d:
-  	translateCamera(0.5f,0.0f,0.0f);
-  	for(auto c : draw_list){
-	if(player->CollidesWith(c->getbbox())){
-		translateCamera(-0.5f,0.0f,0.0f);
-}
+translateCamera(-0.1f,0.0f,0.0f);
+  for(int i=0;i<list_length;i++){
+
+	    if(collidesWithCamera(GetAsset(i).get(),view)){
+		translateCamera(0.01f,0.0f,0.0f);
+	std::cout<<"collision d"<<std::endl;
+	      }
 }
 	  break;
 	  /**
  	  * Move camera backwards.
  	  */
 	  case SDLK_s:
-	translateCamera(0.0f,0.0f,-5.0f);
-  	for(auto c : draw_list){
-	if(player->CollidesWith(c->getbbox())){
-		translateCamera(0.0f,0.0f,5.0f);
-}
+translateCamera(0.0f,0.0f,-0.1f);
+ for(int i=0;i<list_length;i++){
+	    if(collidesWithCamera(GetAsset(i).get(),view)){
+		translateCamera(0.0f,0.0f,0.01f);
+	std::cout<<"collision s"<<std::endl;
+	      }
 }
 	  break;
 	  /**
  	  * Move camera forwards.
  	  */
 	  case SDLK_w:
-	translateCamera(0.0f,0.0f,5.0f);
-  	for(auto c : draw_list){
-	if(player->CollidesWith(c->getbbox())){
-		translateCamera(0.0f,0.0f,-5.0f);
-}
-}
+translateCamera(0.0f,0.0f,0.1f);
+ for(int i=0;i<list_length;i++){
+	     if(collidesWithCamera(GetAsset(i).get(),view)){
+		translateCamera(0.0f,0.0f,-0.1f);
+	std::cout<<"collision w"<<std::endl;
+	      }
+ }
 	  break;
 	  /**
  	  * Move camera downwards.
@@ -175,7 +216,6 @@ void GameAssetManager::Draw() {
 
 
 }
-
 
 /**
  * When given the contents of a vertex shader and fragment shader
@@ -270,3 +310,4 @@ std::pair<GLchar *, GLint> GameAssetManager::ReadShader(std::string & shader) {
   input_file.close();
   return std::make_pair(buffer, length);
 }
+

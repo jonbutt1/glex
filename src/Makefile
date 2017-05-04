@@ -144,8 +144,7 @@ libpytest_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
 	$(CXXFLAGS) $(libpytest_la_LDFLAGS) $(LDFLAGS) -o $@
 libtest_la_LIBADD =
-am_libtest_la_OBJECTS = GameWorld.lo GameAssetManager.lo CubeAsset.lo \
-	BoundingBox.lo
+am_libtest_la_OBJECTS = GameWorld.lo GameAssetManager.lo CubeAsset.lo
 libtest_la_OBJECTS = $(am_libtest_la_OBJECTS)
 libtest_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -218,13 +217,13 @@ ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/ca300/final_glex/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/ca300/sem2/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/ca300/final_glex/missing autoconf
-AUTOHEADER = ${SHELL} /home/ca300/final_glex/missing autoheader
-AUTOMAKE = ${SHELL} /home/ca300/final_glex/missing automake-1.15
+AUTOCONF = ${SHELL} /home/ca300/sem2/missing autoconf
+AUTOHEADER = ${SHELL} /home/ca300/sem2/missing autoheader
+AUTOMAKE = ${SHELL} /home/ca300/sem2/missing automake-1.15
 AWK = gawk
 BOOST_CPPFLAGS = 
 BOOST_LDPATH = 
@@ -270,7 +269,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAKEINFO = ${SHELL} /home/ca300/final_glex/missing makeinfo
+MAKEINFO = ${SHELL} /home/ca300/sem2/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -296,10 +295,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/ca300/final_glex/src
-abs_srcdir = /home/ca300/final_glex/src
-abs_top_builddir = /home/ca300/final_glex
-abs_top_srcdir = /home/ca300/final_glex
+abs_builddir = /home/ca300/sem2/src
+abs_srcdir = /home/ca300/sem2/src
+abs_top_builddir = /home/ca300/sem2
+abs_top_srcdir = /home/ca300/sem2
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -333,7 +332,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/ca300/final_glex/install-sh
+install_sh = ${SHELL} /home/ca300/sem2/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -355,11 +354,11 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h BoundingBox.h Math.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h
 shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libtest.la
 lib_LTLIBRARIES = libtest.la libpytest.la
-libtest_la_SOURCES = GameWorld.cc GameAssetManager.cc CubeAsset.cc BoundingBox.cc
+libtest_la_SOURCES = GameWorld.cc GameAssetManager.cc CubeAsset.cc
 libtest_la_LDFLAGS = -version-info 0:0:0
 libpytest_la_SOURCES = PyCube.cc
 libpytest_la_LDFLAGS = -version-info 0:0:0
@@ -501,7 +500,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/BoundingBox.Plo
 include ./$(DEPDIR)/CubeAsset.Plo
 include ./$(DEPDIR)/GameAssetManager.Plo
 include ./$(DEPDIR)/GameWorld.Plo

@@ -1,11 +1,11 @@
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h BoundingBox.h Math.h
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h
 
 bin_PROGRAMS = shaderexample
 shaderexample_SOURCES = main.cc
 shaderexample_LDADD = libtest.la
 
 lib_LTLIBRARIES=libtest.la
-libtest_la_SOURCES=GameWorld.cc GameAssetManager.cc CubeAsset.cc BoundingBox.cc
+libtest_la_SOURCES=GameWorld.cc GameAssetManager.cc CubeAsset.cc
 libtest_la_LDFLAGS = -version-info 0:0:0
 
 lib_LTLIBRARIES+=libpytest.la

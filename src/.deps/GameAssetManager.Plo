@@ -220,30 +220,30 @@ GameAssetManager.lo: GameAssetManager.cc /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_log.h /usr/include/SDL2/SDL_messagebox.h \
  /usr/include/SDL2/SDL_power.h /usr/include/SDL2/SDL_render.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
- /usr/include/SDL2/SDL_version.h common.h GameAsset.h BoundingBox.h \
- Math.h /usr/include/glm/ext.hpp /usr/include/glm/gtc/bitfield.hpp \
- /usr/include/glm/gtc/bitfield.inl /usr/include/glm/gtc/constants.hpp \
- /usr/include/glm/gtc/constants.inl /usr/include/glm/gtc/epsilon.hpp \
- /usr/include/glm/gtc/epsilon.inl /usr/include/glm/gtc/quaternion.hpp \
- /usr/include/glm/gtc/quaternion.inl /usr/include/glm/gtc/integer.hpp \
+ /usr/include/SDL2/SDL_version.h common.h GameAsset.h Camera.h \
+ /usr/include/glm/gtc/matrix_transform.hpp \
+ /usr/include/glm/gtc/constants.hpp /usr/include/glm/gtc/constants.inl \
+ /usr/include/glm/gtc/matrix_transform.inl \
+ /usr/include/glm/gtc/type_ptr.hpp /usr/include/glm/gtc/quaternion.hpp \
+ /usr/include/glm/gtc/quaternion.inl /usr/include/c++/6.3.1/cstring \
+ /usr/include/glm/gtc/type_ptr.inl BoundingBox.h Math.h \
+ /usr/include/glm/ext.hpp /usr/include/glm/gtc/bitfield.hpp \
+ /usr/include/glm/gtc/bitfield.inl /usr/include/glm/gtc/epsilon.hpp \
+ /usr/include/glm/gtc/epsilon.inl /usr/include/glm/gtc/integer.hpp \
  /usr/include/glm/gtc/integer.inl /usr/include/glm/gtc/matrix_access.hpp \
  /usr/include/glm/gtc/matrix_access.inl \
  /usr/include/glm/gtc/matrix_integer.hpp \
  /usr/include/glm/gtc/matrix_inverse.hpp \
- /usr/include/glm/gtc/matrix_inverse.inl \
- /usr/include/glm/gtc/matrix_transform.hpp \
- /usr/include/glm/gtc/matrix_transform.inl /usr/include/glm/gtc/noise.hpp \
+ /usr/include/glm/gtc/matrix_inverse.inl /usr/include/glm/gtc/noise.hpp \
  /usr/include/glm/detail/_noise.hpp /usr/include/glm/gtc/noise.inl \
  /usr/include/glm/gtc/packing.hpp /usr/include/glm/gtc/type_precision.hpp \
  /usr/include/glm/gtc/vec1.hpp /usr/include/glm/gtc/vec1.inl \
  /usr/include/glm/gtc/type_precision.inl /usr/include/glm/gtc/packing.inl \
- /usr/include/c++/6.3.1/cstring /usr/include/glm/gtc/random.hpp \
- /usr/include/glm/gtc/random.inl /usr/include/c++/6.3.1/ctime \
- /usr/include/glm/gtc/reciprocal.hpp /usr/include/glm/gtc/reciprocal.inl \
- /usr/include/glm/gtc/round.hpp /usr/include/glm/gtc/round.inl \
- /usr/include/glm/gtc/type_ptr.hpp /usr/include/glm/gtc/type_ptr.inl \
- /usr/include/glm/gtc/ulp.hpp /usr/include/glm/gtc/ulp.inl \
- /usr/include/glm/gtx/associated_min_max.hpp \
+ /usr/include/glm/gtc/random.hpp /usr/include/glm/gtc/random.inl \
+ /usr/include/c++/6.3.1/ctime /usr/include/glm/gtc/reciprocal.hpp \
+ /usr/include/glm/gtc/reciprocal.inl /usr/include/glm/gtc/round.hpp \
+ /usr/include/glm/gtc/round.inl /usr/include/glm/gtc/ulp.hpp \
+ /usr/include/glm/gtc/ulp.inl /usr/include/glm/gtx/associated_min_max.hpp \
  /usr/include/glm/gtx/associated_min_max.inl /usr/include/glm/gtx/bit.hpp \
  /usr/include/glm/gtx/bit.inl /usr/include/glm/gtx/closest_point.hpp \
  /usr/include/glm/gtx/closest_point.inl \
@@ -328,7 +328,7 @@ GameAssetManager.lo: GameAssetManager.cc /usr/include/stdc-predef.h \
  /usr/include/glm/gtx/simd_vec4.inl /usr/include/glm/gtx/simd_mat4.hpp \
  /usr/include/glm/detail/intrinsic_matrix.hpp \
  /usr/include/glm/detail/intrinsic_matrix.inl \
- /usr/include/glm/gtx/simd_mat4.inl Camera.h Camera.cc GameAsset.cc
+ /usr/include/glm/gtx/simd_mat4.inl Camera.cc GameAsset.cc
 
 /usr/include/stdc-predef.h:
 
@@ -984,6 +984,26 @@ common.h:
 
 GameAsset.h:
 
+Camera.h:
+
+/usr/include/glm/gtc/matrix_transform.hpp:
+
+/usr/include/glm/gtc/constants.hpp:
+
+/usr/include/glm/gtc/constants.inl:
+
+/usr/include/glm/gtc/matrix_transform.inl:
+
+/usr/include/glm/gtc/type_ptr.hpp:
+
+/usr/include/glm/gtc/quaternion.hpp:
+
+/usr/include/glm/gtc/quaternion.inl:
+
+/usr/include/c++/6.3.1/cstring:
+
+/usr/include/glm/gtc/type_ptr.inl:
+
 BoundingBox.h:
 
 Math.h:
@@ -994,17 +1014,9 @@ Math.h:
 
 /usr/include/glm/gtc/bitfield.inl:
 
-/usr/include/glm/gtc/constants.hpp:
-
-/usr/include/glm/gtc/constants.inl:
-
 /usr/include/glm/gtc/epsilon.hpp:
 
 /usr/include/glm/gtc/epsilon.inl:
-
-/usr/include/glm/gtc/quaternion.hpp:
-
-/usr/include/glm/gtc/quaternion.inl:
 
 /usr/include/glm/gtc/integer.hpp:
 
@@ -1019,10 +1031,6 @@ Math.h:
 /usr/include/glm/gtc/matrix_inverse.hpp:
 
 /usr/include/glm/gtc/matrix_inverse.inl:
-
-/usr/include/glm/gtc/matrix_transform.hpp:
-
-/usr/include/glm/gtc/matrix_transform.inl:
 
 /usr/include/glm/gtc/noise.hpp:
 
@@ -1042,8 +1050,6 @@ Math.h:
 
 /usr/include/glm/gtc/packing.inl:
 
-/usr/include/c++/6.3.1/cstring:
-
 /usr/include/glm/gtc/random.hpp:
 
 /usr/include/glm/gtc/random.inl:
@@ -1057,10 +1063,6 @@ Math.h:
 /usr/include/glm/gtc/round.hpp:
 
 /usr/include/glm/gtc/round.inl:
-
-/usr/include/glm/gtc/type_ptr.hpp:
-
-/usr/include/glm/gtc/type_ptr.inl:
 
 /usr/include/glm/gtc/ulp.hpp:
 
@@ -1279,8 +1281,6 @@ Math.h:
 /usr/include/glm/detail/intrinsic_matrix.inl:
 
 /usr/include/glm/gtx/simd_mat4.inl:
-
-Camera.h:
 
 Camera.cc:
 
