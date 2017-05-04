@@ -11,7 +11,8 @@ libtest_la_LDFLAGS = -version-info 0:0:0
 lib_LTLIBRARIES+=libpytest.la
 libpytest_la_SOURCES=PyCube.cc
 libpytest_la_LDFLAGS = -version-info 0:0:0
-libpytest_la_LIBADD = libtest.la -lboost_python -lpython3.5m
+libpytest_la_LIBADD = libtest.la -lboost_python -lpython2.7
+libpytest_la_CPPFLAGS = -I/usr/include/python2.7
 
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -g
 AM_CPPFLAGS += -std=c++11

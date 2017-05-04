@@ -134,7 +134,7 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libpytest_la_DEPENDENCIES = libtest.la
-am_libpytest_la_OBJECTS = PyCube.lo
+am_libpytest_la_OBJECTS = libpytest_la-PyCube.lo
 libpytest_la_OBJECTS = $(am_libpytest_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -217,13 +217,13 @@ ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/ca300/sem2/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/ca300/test111/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/ca300/sem2/missing autoconf
-AUTOHEADER = ${SHELL} /home/ca300/sem2/missing autoheader
-AUTOMAKE = ${SHELL} /home/ca300/sem2/missing automake-1.15
+AUTOCONF = ${SHELL} /home/ca300/test111/missing autoconf
+AUTOHEADER = ${SHELL} /home/ca300/test111/missing autoheader
+AUTOMAKE = ${SHELL} /home/ca300/test111/missing automake-1.15
 AWK = gawk
 BOOST_CPPFLAGS = 
 BOOST_LDPATH = 
@@ -269,7 +269,7 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAKEINFO = ${SHELL} /home/ca300/sem2/missing makeinfo
+MAKEINFO = ${SHELL} /home/ca300/test111/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -295,10 +295,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/ca300/sem2/src
-abs_srcdir = /home/ca300/sem2/src
-abs_top_builddir = /home/ca300/sem2
-abs_top_srcdir = /home/ca300/sem2
+abs_builddir = /home/ca300/test111/src
+abs_srcdir = /home/ca300/test111/src
+abs_top_builddir = /home/ca300/test111
+abs_top_srcdir = /home/ca300/test111
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -332,7 +332,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/ca300/sem2/install-sh
+install_sh = ${SHELL} /home/ca300/test111/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -362,7 +362,8 @@ libtest_la_SOURCES = GameWorld.cc GameAssetManager.cc CubeAsset.cc
 libtest_la_LDFLAGS = -version-info 0:0:0
 libpytest_la_SOURCES = PyCube.cc
 libpytest_la_LDFLAGS = -version-info 0:0:0
-libpytest_la_LIBADD = libtest.la -lboost_python -lpython3.5m
+libpytest_la_LIBADD = libtest.la -lboost_python -lpython2.7
+libpytest_la_CPPFLAGS = -I/usr/include/python2.7
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -g -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS) \
 	-I/usr/include/python3.5m/
@@ -503,7 +504,7 @@ distclean-compile:
 include ./$(DEPDIR)/CubeAsset.Plo
 include ./$(DEPDIR)/GameAssetManager.Plo
 include ./$(DEPDIR)/GameWorld.Plo
-include ./$(DEPDIR)/PyCube.Plo
+include ./$(DEPDIR)/libpytest_la-PyCube.Plo
 include ./$(DEPDIR)/main.Po
 
 .cc.o:
@@ -529,6 +530,13 @@ include ./$(DEPDIR)/main.Po
 #	$(AM_V_CXX)source='$<' object='$@' libtool=yes \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(LTCXXCOMPILE) -c -o $@ $<
+
+libpytest_la-PyCube.lo: PyCube.cc
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libpytest_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libpytest_la-PyCube.lo -MD -MP -MF $(DEPDIR)/libpytest_la-PyCube.Tpo -c -o libpytest_la-PyCube.lo `test -f 'PyCube.cc' || echo '$(srcdir)/'`PyCube.cc
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libpytest_la-PyCube.Tpo $(DEPDIR)/libpytest_la-PyCube.Plo
+#	$(AM_V_CXX)source='PyCube.cc' object='libpytest_la-PyCube.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libpytest_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libpytest_la-PyCube.lo `test -f 'PyCube.cc' || echo '$(srcdir)/'`PyCube.cc
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -17,7 +17,7 @@ old_library='libpytest.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' /home/ca300/sem2/src/libtest.la -lboost_python -lpython3.5m -lGLEW -lGLU -lGL -lSDL2 -lboost_program_options'
+dependency_libs=' /home/ca300/test111/src/libtest.la -lboost_python -lpython2.7 -lGLEW -lGLU -lGL -lSDL2 -lboost_program_options'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -39,4 +39,4 @@ dlpreopen=''
 
 # Directory that this library needs to be installed in:
 libdir='/usr/local/lib'
-relink_command="(cd /home/ca300/sem2/src; /bin/sh \"/home/ca300/sem2/libtool\"  --tag CXX --mode=relink g++ -g -O2 -version-info 0:0:0 -o libpytest.la -rpath /usr/local/lib PyCube.lo libtest.la -lboost_python -lpython3.5m -lGL -lGLEW -lGLU -lGL -lSDL2 -lboost_program_options @inst_prefix_dir@)"
+relink_command="(cd /home/ca300/test111/src; /bin/sh \"/home/ca300/test111/libtool\"  --tag CXX --mode=relink g++ -g -O2 -version-info 0:0:0 -o libpytest.la -rpath /usr/local/lib libpytest_la-PyCube.lo libtest.la -lboost_python -lpython2.7 -lGL -lGLEW -lGLU -lGL -lSDL2 -lboost_program_options @inst_prefix_dir@)"

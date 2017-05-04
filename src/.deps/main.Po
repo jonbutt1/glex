@@ -939,11 +939,10 @@ main.o: main.cc /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/glm/gtc/matrix_transform.inl \
  /usr/include/glm/gtc/type_ptr.hpp /usr/include/glm/gtc/quaternion.hpp \
  /usr/include/glm/gtc/quaternion.inl /usr/include/glm/gtc/type_ptr.inl \
- BoundingBox.h Math.h /usr/include/glm/ext.hpp \
- /usr/include/glm/gtc/bitfield.hpp /usr/include/glm/gtc/bitfield.inl \
- /usr/include/glm/gtc/epsilon.hpp /usr/include/glm/gtc/epsilon.inl \
- /usr/include/glm/gtc/integer.hpp /usr/include/glm/gtc/integer.inl \
- /usr/include/glm/gtc/matrix_access.hpp \
+ CubeAsset.h /usr/include/glm/ext.hpp /usr/include/glm/gtc/bitfield.hpp \
+ /usr/include/glm/gtc/bitfield.inl /usr/include/glm/gtc/epsilon.hpp \
+ /usr/include/glm/gtc/epsilon.inl /usr/include/glm/gtc/integer.hpp \
+ /usr/include/glm/gtc/integer.inl /usr/include/glm/gtc/matrix_access.hpp \
  /usr/include/glm/gtc/matrix_access.inl \
  /usr/include/glm/gtc/matrix_integer.hpp \
  /usr/include/glm/gtc/matrix_inverse.hpp \
@@ -1041,7 +1040,7 @@ main.o: main.cc /usr/include/stdc-predef.h /usr/include/GL/glew.h \
  /usr/include/glm/gtx/simd_vec4.inl /usr/include/glm/gtx/simd_mat4.hpp \
  /usr/include/glm/detail/intrinsic_matrix.hpp \
  /usr/include/glm/detail/intrinsic_matrix.inl \
- /usr/include/glm/gtx/simd_mat4.inl CubeAsset.h
+ /usr/include/glm/gtx/simd_mat4.inl
 
 /usr/include/stdc-predef.h:
 
@@ -3257,9 +3256,7 @@ Camera.h:
 
 /usr/include/glm/gtc/type_ptr.inl:
 
-BoundingBox.h:
-
-Math.h:
+CubeAsset.h:
 
 /usr/include/glm/ext.hpp:
 
@@ -3532,5 +3529,3 @@ Math.h:
 /usr/include/glm/detail/intrinsic_matrix.inl:
 
 /usr/include/glm/gtx/simd_mat4.inl:
-
-CubeAsset.h:

@@ -14,7 +14,6 @@
 #include "common.h"
 #include "GameAsset.h"
 #include "Camera.h"
-#include "BoundingBox.h"
 
 /**
  * GameAssetManager is a container for GameAssets.  It also provides utility
