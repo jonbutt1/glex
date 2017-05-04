@@ -80,25 +80,21 @@ std::shared_ptr<GameAsset> GameAssetManager::GetAsset(int i){
 }
 bool GameAssetManager::collidesWithCamera(GameAsset *a, glm::mat4 camera){
 
-	//glm::vec3 a_pos = a->getPosition();
-	//glm::vec3 b_pos = b->getPosition();
-
 	glm::mat4 model1=a->getModelMat();
-	//glm::mat4 camera=c->getView();
 
 	GLfloat a_x = model1[3][0];
 	GLfloat a_y = model1[3][1];
 	GLfloat a_z = model1[3][2];
-	GLfloat a_h = 0.01f;//model1[0][0];
-	GLfloat a_w = 0.01f;//model1[1][1];
-	GLfloat a_d = 0.01f;//model1[2][2];
+	GLfloat a_h = 0.01f;
+	GLfloat a_w = 0.01f;
+	GLfloat a_d = 0.01f;
 
 	GLfloat c_x = camera[3][0];
 	GLfloat c_y = camera[3][1];
 	GLfloat c_z = camera[3][2];
-	GLfloat c_h = 0.01f;//camera[0][0];
-	GLfloat c_w = 0.01f;//camera[1][1];
-	GLfloat c_d = 0.01f;//camera[2][2];
+	GLfloat c_h = 0.01f;
+	GLfloat c_w = 0.01f;
+	GLfloat c_d = 0.01f;
 
 	if(((a_x - c_x)*2 <= (a_w+c_w)) &&
 	  ((a_y - c_y) *2<= (a_h+c_h)) &&
@@ -134,12 +130,12 @@ void GameAssetManager::Draw() {
  	  * Move camera to the left.
  	  */
 	  case SDLK_a:
-translateCamera(0.3f,0.0f,0.0f);
+		  translateCamera(0.3f,0.0f,0.0f);
   for(int i=0;i<list_length;i++){
 
 	    if(collidesWithCamera(GetAsset(i).get(),view)){
 	      translateCamera(-0.01f,0.0f,0.0f);
-	std::cout<<"collision a"<<std::endl;
+	      std::cout<<"collision a"<<std::endl;
 	    }
 }
 	  break;
@@ -151,8 +147,8 @@ translateCamera(-0.1f,0.0f,0.0f);
   for(int i=0;i<list_length;i++){
 
 	    if(collidesWithCamera(GetAsset(i).get(),view)){
-		translateCamera(0.01f,0.0f,0.0f);
-	std::cout<<"collision d"<<std::endl;
+	    	translateCamera(0.01f,0.0f,0.0f);
+	    	std::cout<<"collision d"<<std::endl;
 	      }
 }
 	  break;
@@ -163,8 +159,8 @@ translateCamera(-0.1f,0.0f,0.0f);
 translateCamera(0.0f,0.0f,-0.1f);
  for(int i=0;i<list_length;i++){
 	    if(collidesWithCamera(GetAsset(i).get(),view)){
-		translateCamera(0.0f,0.0f,0.01f);
-	std::cout<<"collision s"<<std::endl;
+	    	translateCamera(0.0f,0.0f,0.01f);
+	    	std::cout<<"collision s"<<std::endl;
 	      }
 }
 	  break;
@@ -175,8 +171,8 @@ translateCamera(0.0f,0.0f,-0.1f);
 translateCamera(0.0f,0.0f,0.1f);
  for(int i=0;i<list_length;i++){
 	     if(collidesWithCamera(GetAsset(i).get(),view)){
-		translateCamera(0.0f,0.0f,-0.1f);
-	std::cout<<"collision w"<<std::endl;
+	    	 translateCamera(0.0f,0.0f,-0.1f);
+	    	 std::cout<<"collision w"<<std::endl;
 	      }
  }
 	  break;
@@ -211,10 +207,6 @@ translateCamera(0.0f,0.0f,0.1f);
    glUniform3f(ColourLocation, colour[0], colour[1], colour[2]);
 
   }
-
-
-
-
 }
 
 /**
