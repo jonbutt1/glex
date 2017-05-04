@@ -5,12 +5,6 @@
 #include "Camera.h"
 
 Camera::Camera(){
-/*x_pos=0.0f;
-y_pos=0.0f;
-z_pos=5.0f;
-cameraPosition = glm::vec3(x_pos, y_pos, z_pos);
-cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
-viewMatrix=glm::lookAt(cameraPosition,cameraTarget,glm::vec3(0.0f,1.0f,0.0f));*/
 viewMatrix=glm::mat4();
 }
 

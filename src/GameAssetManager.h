@@ -14,6 +14,7 @@
 #include "common.h"
 #include "GameAsset.h"
 #include "Camera.h"
+#include "BoundingBox.h"
 
 /**
  * GameAssetManager is a container for GameAssets.  It also provides utility
@@ -31,6 +32,7 @@ class GameAssetManager {
   void Draw();
   void scaleModel(GLfloat x, GLfloat y, GLfloat z);
   void translateCamera(GLfloat x, GLfloat y, GLfloat z);
+  bool checkCollision(BoundingBox *a, BoundingBox *b);
 
  private:
 

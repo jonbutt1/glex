@@ -67,7 +67,7 @@ std::shared_ptr<SDL_Window> InitWorld() {
   }
 
   // When we close a window quit the SDL application
-  atexit(SDL_Quit);
+  ::atexit(SDL_Quit);
 
   // Create a new window with an OpenGL surface
   _window = SDL_CreateWindow("Shader Example"
@@ -122,7 +122,7 @@ ApplicationMode ParseOptions (int argc, char ** argv) {
 
   if(vm.count("help")) {
     std::cout << desc << std::endl;
-    exit(0);
+    ::exit(0);
   }
 
   if(vm.count("rotate")) {
@@ -159,49 +159,6 @@ int main(int argc, char ** argv) {
       break;
     case SDL_USEREVENT:
       Draw(window, game_world);
-      break;
-    case SDL_KEYDOWN:
-	switch(event.key.keysym.sym){
-	  /**
- 	  * Move camera to the left.
- 	  */
-	  case SDLK_a:
-	  gameworld->translateCamera(0.5f,0.0f,0.0f);
-	  break;
-	  /**
- 	  * Move camera to the right.
- 	  */	
-	  case SDLK_d:
-	  gameworld->translateCamera(-0.5f,0.0f,0.0f);
-	  break;
-	  /**
- 	  * Move camera backwards.
- 	  */
-	  case SDLK_s:
-	  gameworld->translateCamera(0.0f,0.0f,-0.5f);
-	  break;
-	  /**
- 	  * Move camera forwards.
- 	  */
-	  case SDLK_w:
-	  gameworld->translateCamera(0.0f,0.0f,0.5f);
-	  break;
-	  /**
- 	  * Move camera downwards.
- 	  */
-	  case SDLK_z:
-	  gameworld->translateCamera(0.0f,0.5f,0.0f);
-	  break;
-	  /**
- 	  * Move camera upwards.
- 	  */
-	  case SDLK_x:
-	  gameworld->translateCamera(0.0f,-0.5f,0.0f);
-	  break;
-  default:
-  break;
-}
-    default:
       break;
     }
   }

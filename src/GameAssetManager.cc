@@ -5,6 +5,8 @@
 #include "Camera.cc"
 #include "GameAsset.cc"
 
+auto player=std::make_shared<BoundingBox>(Vector3(0.0f,0.0f,0.0f),0.5f,0.5f,0.5f);
+
 /**
  * Creates a GameAssetManager to load the correct shaders based on the
  * ApplicationMode.
@@ -64,6 +66,8 @@ void GameAssetManager::operator=(GameAssetManager const& the_manager) {
  */
 void GameAssetManager::translateCamera(GLfloat x, GLfloat y, GLfloat z){
 camera.translateCamera(x,y,z);
+Vector3 vec(x,y,z);
+player->SetCentre(vec);
 }
 /**
  * Adds a GameAsset to the scene graph.
@@ -77,8 +81,83 @@ void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
  */
 void GameAssetManager::Draw() {
 
-  glUseProgram(program_token);
 
+
+  auto view=camera.getView();
+  GLint ViewLocation = glGetUniformLocation(program_token,"view");
+  glUniformMatrix4fv(ViewLocation, 1, GL_FALSE, glm::value_ptr(view));
+
+  glUseProgram(program_token);
+   SDL_Event event;
+  while (SDL_PollEvent(&event)) {
+    switch (event.type) {
+    case SDL_KEYDOWN:
+	switch(event.key.keysym.sym){
+	  /**
+ 	  * Move camera to the left.
+ 	  */
+	  case SDLK_a:
+	translateCamera(-0.5f,0.0f,0.0f);
+  	for(auto c : draw_list){
+	if(player->CollidesWith(c->getbbox())){
+		translateCamera(0.5f,0.0f,0.0f);
+}
+}
+	    
+
+	  break;
+	  /**
+ 	  * Move camera to the right.
+ 	  */	
+	  case SDLK_d:
+  	translateCamera(0.5f,0.0f,0.0f);
+  	for(auto c : draw_list){
+	if(player->CollidesWith(c->getbbox())){
+		translateCamera(-0.5f,0.0f,0.0f);
+}
+}
+	  break;
+	  /**
+ 	  * Move camera backwards.
+ 	  */
+	  case SDLK_s:
+	translateCamera(0.0f,0.0f,-5.0f);
+  	for(auto c : draw_list){
+	if(player->CollidesWith(c->getbbox())){
+		translateCamera(0.0f,0.0f,5.0f);
+}
+}
+	  break;
+	  /**
+ 	  * Move camera forwards.
+ 	  */
+	  case SDLK_w:
+	translateCamera(0.0f,0.0f,5.0f);
+  	for(auto c : draw_list){
+	if(player->CollidesWith(c->getbbox())){
+		translateCamera(0.0f,0.0f,-5.0f);
+}
+}
+	  break;
+	  /**
+ 	  * Move camera downwards.
+ 	  */
+	  case SDLK_z:
+	  translateCamera(0.0f,0.5f,0.0f);
+	  break;
+	  /**
+ 	  * Move camera upwards.
+ 	  */
+	  case SDLK_x:
+	  translateCamera(0.0f,-0.5f,0.0f);
+	  break;
+  default:
+  break;
+}
+    default:
+      break;
+    }
+  }
   for(auto ga: draw_list) {
    ga->Draw(program_token);
 
@@ -89,14 +168,14 @@ void GameAssetManager::Draw() {
    glm::vec3 colour=ga->getModelColour();
    GLint ColourLocation = glGetUniformLocation(program_token,"colour");
    glUniform3f(ColourLocation, colour[0], colour[1], colour[2]);
+
   }
 
-  auto view=camera.getView();
-  GLint ViewLocation = glGetUniformLocation(program_token,"view");
-  glUniformMatrix4fv(ViewLocation, 1, GL_FALSE, glm::value_ptr(view));
+
 
 
 }
+
 
 /**
  * When given the contents of a vertex shader and fragment shader
@@ -122,7 +201,7 @@ GLuint GameAssetManager::CreateGLProgram(std::string & vertex_shader
   if (!program_ok) {
     std::cerr << "Failed to link shader program:" << std::endl;
     glDeleteProgram(program);
-    exit(-1);
+    ::exit(-1);
   }
   return program;
 }
@@ -163,7 +242,7 @@ GLuint GameAssetManager::CreateGLESShader(GLenum type, std::string & shader) {
     }
 
     glDeleteShader(shader_token); //Don't leak the shader.
-    exit(-1);
+    ::exit(-1);
   }
   return shader_token;
 }
